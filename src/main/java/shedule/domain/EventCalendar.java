@@ -11,8 +11,6 @@ public class EventCalendar {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    /*@ElementCollection(targetClass = TypeEvent.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "event_type", joinColumns = @JoinColumn(name = "user_id"))*/
     @Enumerated(EnumType.STRING)
     private TypeEvent typeEvent;
 
@@ -72,5 +70,13 @@ public class EventCalendar {
 
     public MyUser getPation() {
         return pation;
+    }
+
+    public void setDoctor(MyUser doctor) {
+        this.doctor = doctor;
+    }
+
+    public void setPation(MyUser pation) {
+        this.pation = pation;
     }
 }

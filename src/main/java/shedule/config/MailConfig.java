@@ -24,6 +24,10 @@ public class MailConfig {
     private int port;
     @Value("${spring.mail.protocol}")
     private String protocol;
+    @Value("${spring.mail.properties.mail.smtp.auth}")
+    private String isAuth;
+    @Value("${spring.mail.properties.mail.smtp.starttls.enable}")
+    private String isStarttlsEnable;
     @Value("${mail.debug}")
     private String debug;
 
@@ -34,11 +38,22 @@ public class MailConfig {
 
         mailSender.setHost(host);
         mailSender.setPort(port);
+        mailSender.setProtocol(protocol);
+
         mailSender.setUsername(username);
         mailSender.setPassword(password);
 
-        Properties properties = mailSender.getJavaMailProperties();
-
+        Properties props = mailSender.getJavaMailProperties();
+        props.put("mail.transport.protocol", protocol);
+        props.put("mail.smtp.auth", isAuth);
+        props.put("mail.smtp.starttls.enable", isStarttlsEnable);
+        props.put("mail.debug", debug);
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", port);
+        props.put("mail.smtp.socketFactory.port", port);
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false");
+        props.put("mail.smtp.ssl", "true");
 
         return mailSender;
     }

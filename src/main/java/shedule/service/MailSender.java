@@ -6,20 +6,21 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import javax.mail.Authenticator;
+
 @Service
 public class MailSender {
-    //shedulead@gmail.com
-    //q9w8e7r6
 
     @Autowired
     private JavaMailSender mailSender;
+
 
     @Value("${spring.mail.username}")
     private String username;
 
     public void send(String emailTo, String subject, String message) {
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
 
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
 
         mailMessage.setFrom(username);
         mailMessage.setTo(emailTo);
