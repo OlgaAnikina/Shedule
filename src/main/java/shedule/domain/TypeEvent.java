@@ -6,7 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public enum TypeEvent {
     @JsonProperty("consultation")
     CONSULTATION("CONSULTATION"),
-    INSPECTION("INSPECTION"), OPERATION("OPERATION"), PROCEDURE("PROCEDURE");
+    @JsonProperty("inspection")
+    INSPECTION("INSPECTION"),
+    @JsonProperty("operation")
+    OPERATION("OPERATION"),
+    @JsonProperty("procedure")
+    PROCEDURE("PROCEDURE");
 
     private static String CONSULTATIONS_EMUM = "CONSULTATION, INSPECTION, OPERATION, PROCEDURE";
 

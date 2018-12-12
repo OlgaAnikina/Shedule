@@ -37,9 +37,8 @@ public class CalendarController {
         event.setDate(eventCalendar.getData());
         event.setTypeEvent(eventCalendar.getTypeEvent());
 
-        MyUser pation = userRepo.findByUsername(eventCalendar.getDoctor());
-        MyUser doctor = userRepo.findByUsername(eventCalendar.getPatient());
-        System.out.println(doctor.getUsername());
+        MyUser doctor= userRepo.findByUsername(eventCalendar.getDoctor());
+        MyUser pation = userRepo.findByUsername(eventCalendar.getPatient());
 
         event.setPation(pation);
         event.setDoctor(doctor);
