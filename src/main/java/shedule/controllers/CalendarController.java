@@ -36,12 +36,14 @@ public class CalendarController {
     @ResponseBody
     @PostMapping(value="/add", consumes = "application/json")
     public void testCel(@RequestBody Event eventCalendar) {
+        System.out.println("in json");
         EventCalendar event = new EventCalendar();
         event.setDate(eventCalendar.getDate());
         event.setTypeEvent(eventCalendar.getTypeEvent());
 
         MyUser pation = userRepo.findByUsername(eventCalendar.getFirstUserName());
         MyUser doctor = userRepo.findByUsername(eventCalendar.getSecondUserName());
+        System.out.println(doctor.getUsername());
 
         event.setPation(pation);
         event.setDoctor(doctor);
@@ -53,8 +55,6 @@ public class CalendarController {
     @RequestMapping(value = "/calendarTypes", method = RequestMethod.GET)
     @ResponseBody
     public String getTypes() {
-
-
         return TypeEvent.getEnum();
     }
 

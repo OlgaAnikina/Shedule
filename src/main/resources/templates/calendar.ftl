@@ -1,14 +1,15 @@
 <#import "parts/common.ftl" as c>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Calendar</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Calendar</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="static/vendor.js"></script>
-</head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+              id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="static/vendor.js"></script>
+    </head>
 
 <@c.page>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="style.css">
@@ -20,51 +21,56 @@
         crossorigin="anonymous"></script>
 
 
+<div class="container">
 
 
-
-    <div class="container">
-
-
-        <div class="col-md-20 col-xs-24 main">
-            <div class="container theme-showcase">
-                <h1>Calendar</h1>
-                <div id="holder" class="row" ></div>
+    <div class="col-md-20 col-xs-24 main">
+        <div class="container theme-showcase">
+            <h1>Calendar</h1>
+            <div id="holder" class="row"></div>
         </div>
     </div>
 
-        </@c.page>
-        <div class="col-md-4 col-xs-24 sidebar">
-            <div class="list-group">
-                <button type="button" class="list-group-item">Cras justo odio</button>
-                <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-                <button type="button" class="list-group-item">Morbi leo risus</button>
-                <button type="button" class="list-group-item">Porta ac consectetur ac</button>
-                <button type="button" class="list-group-item">Vestibulum at eros</button>
-            </div>
-        </div>
-
-        <div class="popup-box" id="popup-box-1" >
+    </@c.page>
+    <div class="qqq">
+        <div class="popup-box" id="popup-box-1">
             <div class="close">X</div>
             <div class="top">
-                <h2>Some Title Goes Here:</h2>
+                <h2>Input new event:</h2>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">First user name :</label>
-                <div class="col-sm-6">
-                    <input type="text" id="firstUserName" class="form-control" placeholder="User name" />
-                </div>
+                <label class="col-sm-6 col-form-label">Choose type of event:</label>
+                <select id="typevent">
+                    <option value="consultation">consultation</option>
+                    <option value="inspection">inspection</option>
+                    <option value="operation">operation</option>
+                    <option value="procedur">procedur</option>
+                </select>
+
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Second user name :</label>
+                <label class="col-sm-6 col-form-label">Choose a doctor:</label>
+
+                <select id="doctor">
+                    <option value="Maroon">Maroon</option>
+                    <option value="Green">Green</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Blue">Blue</option>
+                </select>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Second user name :</label>
                 <div class="col-sm-6">
-                    <input type="text" id="secondUserName" class="form-control" placeholder="User name" />
+                    <input type="text" id="secondUserName" class="form-control" placeholder="User name"/>
                 </div>
             </div>
 
             <button class="btn btn-primary" type="submit">Submit</button>
-
         </div>
+    </div>
+
+</div>
 
 <script type="text/tmpl" id="tmpl">
   {{
@@ -213,4 +219,7 @@
     </tbody>
     {{ } }}
   </table>
+
+
+
 </script>

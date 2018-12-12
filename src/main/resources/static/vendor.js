@@ -62,8 +62,11 @@ $.extend(Date.prototype, {
 
         $('.btn').click(function () {
             const u ={
-                firstUserName: $('#firstUserName').val(),
+              //  firstUserName: $('#firstUserName').val(),
+              //  secondUserName: $('#secondUserName').val(),
+                firstUserName : $('#doctor').val(),
                 secondUserName: $('#secondUserName').val(),
+                typevent: $('#typevent').val(),
                 data: popupData,
             }
 
@@ -84,9 +87,10 @@ $.extend(Date.prototype, {
             }).then(res => {
                 console.log(res);
                 $('.popup-box').hide()
-                popupData = null;
+                popupData = data;
             })
             console.log(u);
+            console.log(JSON.stringify(u));
 
         })
 
