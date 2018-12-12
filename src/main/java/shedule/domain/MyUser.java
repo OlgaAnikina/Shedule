@@ -110,4 +110,9 @@ public class MyUser implements UserDetails {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public  boolean isDoctor() {
+        if(roles.contains(Role.DOCTOR)) return true;
+        else return false;
+    }
 }

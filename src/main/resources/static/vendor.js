@@ -64,8 +64,8 @@ $.extend(Date.prototype, {
             const u ={
               //  firstUserName: $('#firstUserName').val(),
               //  secondUserName: $('#secondUserName').val(),
-                firstUserName : $('#doctor').val(),
-                secondUserName: $('#secondUserName').val(),
+                doctor : $('#doctor').val(),
+                patient: $('#secondUserName').val(),
                 typevent: $('#typevent').val(),
                 data: popupData,
             }

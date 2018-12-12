@@ -52,18 +52,22 @@
                 <label class="col-sm-6 col-form-label">Choose a doctor:</label>
 
                 <select id="doctor">
-                    <option value="Maroon">Maroon</option>
-                    <option value="Green">Green</option>
-                    <option value="Yellow">Yellow</option>
-                    <option value="Blue">Blue</option>
+                    <#list userList as user>
+                        <#if user.isDoctor()>
+                            <option>${user.username}</option>
+                        </#if>
+
+                    </#list>
                 </select>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-6 col-form-label">Second user name :</label>
-                <div class="col-sm-6">
-                    <input type="text" id="secondUserName" class="form-control" placeholder="User name"/>
-                </div>
+                <label class="col-sm-6 col-form-label">Choose patient name :</label>
+                <select id="patient">
+                    <#list userList as user>
+                        <option>${user.username}</option>
+                    </#list>
+                </select>
             </div>
 
             <button class="btn btn-primary" type="submit">Submit</button>
