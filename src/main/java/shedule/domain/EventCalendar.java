@@ -1,5 +1,7 @@
 package shedule.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,6 +16,7 @@ public class EventCalendar {
     @Enumerated(EnumType.STRING)
     private TypeEvent typeEvent;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private Date date;
 
     public EventCalendar(TypeEvent typeEvent, MyUser doctor, MyUser pation) {

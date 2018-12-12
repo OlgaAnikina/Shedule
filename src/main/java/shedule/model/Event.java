@@ -8,8 +8,8 @@ import java.util.Date;
 
 public class Event {
 
-    private String firstUserName;
-    private String secondUserName;
+    private String doctor;
+    private String patient;
 
     @JsonProperty("typevent")
     private TypeEvent typeEvent;
@@ -17,20 +17,20 @@ public class Event {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private Date data;
 
-    public String getFirstUserName() {
-        return firstUserName;
+    public String getDoctor() {
+        return doctor;
     }
 
-    public void setFirstUserName(String firstUserName) {
-        this.firstUserName = firstUserName;
+    public void setDoctor(String doctor) {
+        this.doctor = doctor;
     }
 
-    public String getSecondUserName() {
-        return secondUserName;
+    public String getPatient() {
+        return patient;
     }
 
-    public void setSecondUserName(String secondUserName) {
-        this.secondUserName = secondUserName;
+    public void setPatient(String patient) {
+        this.patient = patient;
     }
 
     public Date getData() {
