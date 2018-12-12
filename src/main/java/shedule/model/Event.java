@@ -1,6 +1,7 @@
 package shedule.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import shedule.domain.TypeEvent;
 
 import java.util.Date;
@@ -10,10 +11,11 @@ public class Event {
     private String firstUserName;
     private String secondUserName;
 
+    @JsonProperty("typevent")
     private TypeEvent typeEvent;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private Date date;
+    private Date data;
 
     public String getFirstUserName() {
         return firstUserName;
@@ -31,12 +33,12 @@ public class Event {
         this.secondUserName = secondUserName;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getData() {
+        return data;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public TypeEvent getTypeEvent() {
