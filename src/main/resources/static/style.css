@@ -6,10 +6,10 @@ body {
     position: absolute;
     border-radius: 5px;
     background: #fff;
-    top: 400px;
-    left: 200px;
+    top: 295px;
+    left: 100px;
     display: none;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     font-family: Arial, sans-serif;
     z-index: 9999999;
     font-size: 14px;
@@ -37,8 +37,14 @@ body {
     margin: 0;
     font-size: 18px;
 }
+
 .popup-box .top {
-    padding: 20px;
+    padding: 20px 20px 20px 0;
+}
+
+.popup-box .top h2 {
+    font-weight: bold;
+    text-align: left;
 }
 
 .popup-box .bottom {
@@ -50,7 +56,7 @@ body {
 }
 
 #blackout {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 0;
     overflow: hidden;
@@ -65,20 +71,25 @@ body {
     max-width: 100px;
     height: 80px;
 }
+
 .calendar-table {
     margin: 0 auto;
     width: 700px;
 }
+
 .selected {
     background-color: #eee;
 }
+
 .outside .date {
     color: #ccc;
 }
+
 .timetitle {
     white-space: nowrap;
     text-align: right;
 }
+
 .event {
     border-top: 1px solid #b2dba1;
     border-bottom: 1px solid #b2dba1;
@@ -94,16 +105,19 @@ body {
     text-overflow: ellipsis;
     margin-bottom: 1px;
 }
+
 .event.begin {
     border-left: 1px solid #b2dba1;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }
+
 .event.end {
     border-right: 1px solid #b2dba1;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
+
 .event.all-day {
     border-top: 1px solid #9acfea;
     border-bottom: 1px solid #9acfea;
@@ -112,20 +126,24 @@ body {
     color: #31708f;
     border-width: 1px;
 }
+
 .event.all-day.begin {
     border-left: 1px solid #9acfea;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }
+
 .event.all-day.end {
     border-right: 1px solid #9acfea;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
+
 .event.clear {
     background: none;
     border: 1px solid transparent;
 }
+
 .table-tight > thead > tr > th,
 .table-tight > tbody > tr > th,
 .table-tight > tfoot > tr > th,
@@ -135,6 +153,7 @@ body {
     padding-left: 0;
     padding-right: 0;
 }
+
 .table-tight-vert > thead > tr > th,
 .table-tight-vert > tbody > tr > th,
 .table-tight-vert > tfoot > tr > th,
@@ -145,5 +164,12 @@ body {
     padding-bottom: 0;
 }
 
-.date{
-    width: 0px}
+.date {
+    width: 0px
+}
+
+#typevent, #doctor, #patient{
+    height: 20px;
+    border: 1px solid;
+    margin-top: 20px;
+}
