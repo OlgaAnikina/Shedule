@@ -20,15 +20,6 @@ public class CalendarController {
     @Autowired
     private UserRepository userRepo;
 
-
-/*
-
-    @GetMapping()
-    public String eventSave() {
-        System.out.println(" OK111");
-        return "calendar";
-    }
-*/
     @ResponseBody
     @PostMapping(value="/add", consumes = "application/json")
     public void testCel(@RequestBody Event eventCalendar) {
@@ -46,11 +37,17 @@ public class CalendarController {
         eventRepo.save(event);
     }
 
-
-    @RequestMapping(value = "/calendarTypes", method = RequestMethod.GET)
+/*
+    @RequestMapping(value = "/calendar", method = RequestMethod.GET)
     @ResponseBody
-    public String getTypes() {
+    public String getT() {
         return TypeEvent.getEnum();
+    }*/
+
+    @GetMapping(value = "/event", produces = "application/json")
+    public String eventList(Model model) {
+        model.addAttribute("eventList", eventRepo.findAll());
+        return "calendar";
     }
 
     @GetMapping
@@ -58,5 +55,7 @@ public class CalendarController {
         model.addAttribute("userList", userRepo.findAll());
         return "calendar";
     }
+
+
 
 }

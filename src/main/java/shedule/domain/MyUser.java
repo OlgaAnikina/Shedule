@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Collection;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -29,6 +30,17 @@ public class MyUser implements UserDetails {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Message> messages;
+
+    public Set<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Set<Message> messages) {
+        this.messages = messages;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -114,5 +126,24 @@ public class MyUser implements UserDetails {
     public  boolean isDoctor() {
         if(roles.contains(Role.DOCTOR)) return true;
         else return false;
+    }
+
+    public  boolean isNotAdmin() {
+        if(roles.contains(Role.ADMIN)) return false;
+        else return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyUser myUser = (MyUser) o;
+        return id.equals(myUser.id) &&
+                username.equals(myUser.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username);
     }
 }

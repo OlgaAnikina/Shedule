@@ -20,7 +20,6 @@ public class Message {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
     private MyUser author;
-
     private String filename;
 
     public Message(){};

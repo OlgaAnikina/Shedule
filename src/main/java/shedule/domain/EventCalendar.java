@@ -19,13 +19,6 @@ public class EventCalendar {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private Date date;
 
-    public EventCalendar(TypeEvent typeEvent, MyUser doctor, MyUser pation) {
-        this.typeEvent = typeEvent;
-
-        this.doctor = doctor;
-        this.pation = pation;
-    }
-
     @ElementCollection(targetClass = MyUser.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "my_user", joinColumns = @JoinColumn(name = "user_id"))
     @OneToOne
@@ -37,11 +30,6 @@ public class EventCalendar {
     private MyUser pation;
 
     public EventCalendar() {}
-
-    public EventCalendar(TypeEvent typeEvent, Date date) {
-        this.typeEvent = typeEvent;
-        this.date = date;
-    }
 
     public Long getId() {
         return id;

@@ -20,10 +20,8 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-
+<#include "popup.ftl" />
 <div class="container">
-
-
     <div class="col-md-20 col-xs-24 main">
         <div class="container theme-showcase">
             <h1>Calendar</h1>
@@ -35,44 +33,12 @@
 </div>
 
 
-<div class="popup-box" id="popup-box-1">
-    <div class="close">X</div>
-    <div class="top">
-        <h2>Input new event:</h2>
-    </div>
-    <div class="form-group row">
-        <label class="col-sm-6 col-form-label">Choose type of event:</label>
-        <select id="typevent">
-            <option value="consultation">consultation</option>
-            <option value="inspection">inspection</option>
-            <option value="operation">operation</option>
-            <option value="procedur">procedur</option>
-        </select>
-    </div>
-    <div class="form-group row">
-        <label class="col-sm-6 col-form-label">Choose a doctor:</label>
-        <select id="doctor">
-            <#list userList as user>
-                <#if user.isDoctor()>
-                    <option>${user.username}</option>
-                </#if>
-            </#list>
-        </select>
-    </div>
-    <div class="form-group row">
-        <label class="col-sm-6 col-form-label">Choose patient name :</label>
-        <select id="patient">
-            <#list userList as user>
-                <option>${user.username}</option>
-            </#list>
-        </select>
-    </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
-</div>
+
 
 
 <script type="text/tmpl" id="tmpl">
   {{
+
   var date = date || new Date(),
       month = date.getMonth(),
       year = date.getFullYear(),

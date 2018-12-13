@@ -37,7 +37,23 @@ $.extend(Date.prototype, {
             return hour + ':' + minutes + ampm;
         }
         return hour + ampm;
-    }
+    },
+     dataEvent: function() {
+         fetch("http://localhost:9090/calendar/add",{
+             method:"POST",
+             headers: {
+                 "Content-Type": "application/json; charset=utf-8",
+             },
+             body: JSON.stringify(u),
+         }).then(res => {
+             console.log(res);
+             $('.popup-box').hide()
+             popupData = data;
+         })
+
+
+     }
+
 });
 (function ($) {
 
@@ -62,8 +78,7 @@ $.extend(Date.prototype, {
 
         $('.btn').click(function () {
             const u ={
-              //  firstUserName: $('#firstUserName').val(),
-              //  secondUserName: $('#secondUserName').val(),
+
                 doctor : $('#doctor').val(),
                 patient: $('#patient').val(),
                 typevent: $('#typevent').val(),
@@ -72,7 +87,7 @@ $.extend(Date.prototype, {
 
             dayAddEvent(eventId, {
                 allDay: true,
-                title: 'procedure',
+                title: $('#typevent').val(),
                 start: new Date(Date.parse(popupData)),
             });
 
@@ -98,7 +113,7 @@ $.extend(Date.prototype, {
             if (event.target.classList.contains("calendar-day")) {
                 drawPopUp(event.target);
             }
-         //   console.log('E', event.target);
+
 
         });
         //actions aren't currently in the template, but could be added easily...
@@ -300,8 +315,6 @@ var data = [],
     m,
 
     names = ['consultation', 'inspection', 'operation', 'procedure'];
-   // slipsu
-    // m = [" Wha", "Wha", "We", "Yea", "Lhe price.", "Yn", "You see", "L.", "Y man."];
 
 for(i = 0; i < 500; i++) {
     j = Math.max(i % 15 - 10, 0);

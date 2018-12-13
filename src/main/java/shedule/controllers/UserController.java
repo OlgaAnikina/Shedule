@@ -26,6 +26,7 @@ public class UserController {
     public String userList(Model model) {
         model.addAttribute("userList", userRepository.findAll());
         return "userList";
+
     }
 
 

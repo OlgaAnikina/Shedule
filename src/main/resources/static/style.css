@@ -168,8 +168,66 @@ body {
     width: 0px
 }
 
-#typevent, #doctor, #patient{
+#typevent, #doctor, #patient {
     height: 20px;
     border: 1px solid;
     margin-top: 20px;
+}
+
+.user-list {
+    width: 100%;
+}
+
+.user-list-title,
+.user-edit-title {
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-list tr td:first-child {
+    padding-right: 20px;
+}
+
+.user-list td {
+    border: 1px solid;
+    text-align: center;
+}
+
+.user-list tr:nth-child(2n) {
+    background: #007bff8f;
+}
+
+.user-edit-form {
+    width: 40%;
+    margin: auto;
+}
+
+.user-edit-label {
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.user-edit-label._role {
+    display: block;
+    margin-top: 10px;
+}
+
+.list-role {
+    margin-left: 80px;
+}
+
+.main-page {
+    height: 675px;
+    width: 100%;
+    background: url(background.jpg) no-repeat;
+}
+
+.main-page-title {
+    font-size: 45px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
